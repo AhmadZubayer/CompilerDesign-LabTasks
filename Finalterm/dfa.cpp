@@ -2,11 +2,11 @@
 using namespace std;
 
 bool dfaVerify(string s) {
-    int q[] = {0, 1, 2, 3, 4};
-    int finalStates[] = {3, 4};
-    int deathState[] = {};
+    char q[] = {'A', 'B', 'C', 'D', 'E'};
+    char finalStates[] = {'D', 'E'};
+    char deathState[] = {};
     
-    int currentState = 0;
+    char currentState = 'A';
     
     for(int i = 0; i < s.length(); i++) {
         char input = s[i];
@@ -16,43 +16,43 @@ bool dfaVerify(string s) {
         }
         
         switch(currentState) {
-            case 0:
+            case 'A':
                 if(input == 'a') {
-                    currentState = 3;
+                    currentState = 'D';
                 } else if(input == 'b') {
-                    currentState = 1;
+                    currentState = 'B';
                 }
                 break;
             
-            case 1:
+            case 'B':
                 if(input == 'a') {
-                    currentState = 2;
+                    currentState = 'C';
                 } else if(input == 'b') {
-                    currentState = 1;
+                    currentState = 'B';
                 }
                 break;
             
-            case 2:
+            case 'C':
                 if(input == 'a') {
-                    currentState = 3;
+                    currentState = 'D';
                 } else if(input == 'b') {
-                    currentState = 1;
+                    currentState = 'B';
                 }
                 break;
             
-            case 3:
+            case 'D':
                 if(input == 'a') {
-                    currentState = 4;
+                    currentState = 'E';
                 } else if(input == 'b') {
-                    currentState = 1;
+                    currentState = 'B';
                 }
                 break;
             
-            case 4:
+            case 'E':
                 if(input == 'a') {
-                    currentState = 4;
+                    currentState = 'E';
                 } else if(input == 'b') {
-                    currentState = 1;
+                    currentState = 'B';
                 }
                 break;
         }
