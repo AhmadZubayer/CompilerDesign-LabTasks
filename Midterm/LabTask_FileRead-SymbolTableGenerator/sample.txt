@@ -1,0 +1,6 @@
+int main (){
+int x, y;
+x = 5;
+cout << "Hello";
+return 0;
+}
